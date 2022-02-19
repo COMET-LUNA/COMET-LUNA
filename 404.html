@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rerouting...</title>
+</head>
+<body onload="reroute()">
+</body>
+<script>
+  links = [
+    {
+      "alias": "consentform",
+      "url": "https://docs.google.com/document/d/11Jx7ftSDoeMrFKcAmsF-CafwyDcukAmSlD1Zq4JQ_bM/edit?usp=sharing"
+    },
+    {
+      "alias": "lowfid",
+      "url": "https://www.figma.com/proto/kQK7EcYfumZvbzvCIaEXIO/Low-Fidelity?node-id=59%3A797&scaling=min-zoom&page-id=59%3A2&starting-point-node-id=59%3A797&hotspot-hints=0"
+    },
+    {
+      "alias": "participate",
+      "url": "https://forms.gle/4Ee77YAspEEPfMD77"
+    },
+    {
+      "alias": "testing",
+      "url": "https://luna-doctor-finder.netlify.app/"
+    },
+    {
+      "alias": "testing-heroku",
+      "url": "https://luna-frontend-thesis.herokuapp.com/"
+    },
+  ]
+  function reroute(){
+    path = window.location.pathname.split('/')[1]
+    match = false
+
+    console.log(path)
+
+    for(link of links){
+      if (link['alias'] == path){
+        window.location.replace(link['url'])
+        match = true
+      }
+    }
+
+    if (!match) window.location.replace('/unknownpath.html')
+  }
+</script>
+</html>
